@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Traslación de una Pirámide</h1>
+
+    <label for="lado">Lado base:</label>
+    <input id="width" size=1 />
+    <br><br>
+    <label for="altura">Altura:</label>
+    <input id="height" size=1 />
+    <br><br>
+    <label for="vectorT">Vector Traslación:</label>
+    <input id="vt" size=8 />
+    <br><br>
+    <button onclick="sumar()">Ejecutar traslación</button>
+
+    <p>Vertices posición inicial: <input id="vert_ini" size=50 /></p>
+    <p>Vertices posición final: <input id="vert_end" size=50 /></p>
+
+</body>
+
+<script>
+    function vertices(lado, altura) {
+        return [
+            [0, 0, 0],
+            [lado, 0, 0],
+            [lado, 0, lado],
+            [0, 0, lado],
+            [lado / 2, altura, lado / 2]
+        ];
+
+    }
+
+</script>
+
+</html>

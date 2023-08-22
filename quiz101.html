@@ -7,7 +7,7 @@
 
 <body>
 
-    <h1>Traslación de una pirámidde</h1>
+    <h1>Traslación de una pirámide</h1>
     <p>Lado base <input id="width" size=1 /></p>
     <p>Altura    <input id="height" size=1 /></p>
     <p>Vector traslación    <input id="vt" size=8 /></p>
@@ -15,43 +15,43 @@
     <p>Vertices posición inicial    <input id="vert_ini" size=50 /></p>
     <p>Vertices posición final      <input id="vert_end" size=50 /></p>
 
-</body>
-
-<script>
-    function vertices(lado, altura) {
-        return [
-            [0, 0, 0],
-            [lado, 0, 0],
-            [lado, 0, lado],
-            [0, 0, lado],
-            [lado / 2, altura, lado / 2]
-        ];
-    }
-
-    function traslacionPiramide(matrVert, vt) {
-        var resultado [];
-
-        for (var i = 0; i < matriz.length; i++) {
-            var vertice = [
-                matrVert[i][0] + vt[0],
-                matrVert[i][1] + vt[1],
-                matrVert[i][2] + vt[2]
+    <script>
+        function vertices(lado, altura) {
+            return [
+                [0, 0, 0],
+                [lado, 0, 0],
+                [lado, 0, lado],
+                [0, 0, lado],
+                [lado / 2, altura, lado / 2]
             ];
         }
 
-        return resultado;
-    }
+        function traslacionPiramide(matrVert, vt) {
+            var resultado [];
+            for (var i = 0; i < matriz.length; i++) {
+                var vertice = [
+                    matrVert[i][0] + vt[0],
+                    matrVert[i][1] + vt[1],
+                    matrVert[i][2] + vt[2]
+                ];
+            }
 
-    function calculo() {
-        var lado = parseFloat(document.getElementById("lado").value);
-        var altura = parseFloat(document.getElementById("altura").value);
-    }
+            return resultado;
+        }
 
+        function calculo() {
+            var lado = parseFloat(document.getElementById("lado").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var vectort = document.getElementById("altura").value;
+            var vector = vectort.split(",").map(parseFloat);
+            var verticesI = vertices(lado, altura);
+            var verticesF = traslacionPiramide(verticesI, vector);
 
+            document.getElementById("verticesI").textContent = JSON.stringify(verticesI, null, 2);
+            document.getElementById("verticesF").textContent = JSON.stringify(verticesF, null, 2);
 
+    </script>
 
-
-
-</script>
+</body>
 
 </html>
